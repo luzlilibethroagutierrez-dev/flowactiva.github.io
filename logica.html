@@ -3,15 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <title>Lógica Flow Activa</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 40px; background: #F1EFE8; }
+      h1 { color: #0F6E56; }
+      input { padding: 10px; font-size: 16px; margin-right: 10px; border: 2px solid #1D9E75; border-radius: 6px; }
+      button { padding: 10px 20px; background: #1D9E75; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+      #resultado { margin-top: 20px; font-size: 18px; font-weight: bold; }
+    </style>
   </head>
   <body>
 
-    <h1>Mi primera lógica</h1>
-    <button onclick="saludar()">Haz clic aquí</button>
+    <h1>Verificador de tallas Flow Activa</h1>
+    <p>Escribe tu talla y verifica disponibilidad:</p>
+    <input type="text" id="talla" placeholder="Ej: S, M, L, XL">
+    <button onclick="verificar()">Verificar</button>
+    <div id="resultado"></div>
 
     <script>
-      function saludar() {
-        alert("Bienvenida a Flow Activa 💚");
+      function verificar() {
+        let talla = document.getElementById("talla").value;
+        let disponibles = ["S", "M", "L"];
+
+        if (disponibles.includes(talla)) {
+          document.getElementById("resultado").innerHTML = "✅ Talla " + talla + " disponible";
+          document.getElementById("resultado").style.color = "#1D9E75";
+        } else {
+          document.getElementById("resultado").innerHTML = "❌ Talla " + talla + " no disponible";
+          document.getElementById("resultado").style.color = "red";
+        }
       }
     </script>
 
